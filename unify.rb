@@ -3,7 +3,6 @@
 REGEX_BEGIN = '<!-- begin:XXX -->'
 REGEX_END = '<!-- end:XXX -->'
 
-
 def main
   matcher = Regexp.new REGEX_BEGIN.gsub(/XXX/,"(.*?\\.html)");
 
