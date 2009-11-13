@@ -7,7 +7,7 @@ def main
   matcher = Regexp.new REGEX_BEGIN.gsub(/XXX/,"(.*?\\.html)");
 
   files.each do |file|
-    print "#{file}\t updating:"
+    print "#{file}"
     update_file file
     print "\n"
   end
@@ -37,14 +37,14 @@ def update_part text, template
   
   source_content = content(text, template)
   if source_content != target_content
-    print " _#{template}"            
+    print " << _#{template}"            
     text = replace(text,template,target_content)
   end
   text
 end
 
 def files
-  Dir.entries(".").select {|f| f =~ /^[^_].*\.html/}
+  Dir.entries(".").select {|f| f =~ /^[^_].*\.html$/}
 end
 
 def scan_pattern
